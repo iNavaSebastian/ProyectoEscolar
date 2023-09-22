@@ -1,0 +1,99 @@
+setwd("C:/Users/Alumno/Desktop")
+list.files()
+CVS <- read.delim("C:/Users/Alumno/Desktop/CVS.txt")
+View(CVS)library(readr)
+Libro1 <- read_csv("Libro1.csv")
+View(Libro1)
+data=read.delim("Libro1.txt")
+data
+
+
+#Change my_numeric to be 42
+my_numeric= 42
+#Change my_character to be "universe"
+my_character= "universe"
+#Change my_logical to be FALSE
+my_logical= FALSE
+#Check class of my_numeric
+class(my_numeric)
+#Check class of my_character
+class(my_character)
+#Check class of my_logical
+class(my_logical)
+#Assing
+vegas= "Go!"
+
+
+#Create the numeric_vector and the character_vector
+numeric_vector= c(1,10,49)
+character_vector= c("a","b","c")
+boolean_vector= c(TRUE,FALSE,TRUE)
+#Poker winnings from Monday to Friday
+poker_vector= c(140,-50,20,-120,240)
+#Roulette winnings from Monday to Friday
+roulette_vector= c(-24,-50,100,-350,10)
+#Assing days as names of poker_vector
+names(poker_vector)= c("Monday","Tuesday","Wednesday","Thursday","Friday")
+#Assing days as names of roulette_vector
+names(roulette_vector)= c("Monday","Tuesday","Wednesday","Thursday","Friday")
+#The variable days_vector
+days_vector= c("Monday","Tuesday","Wednesday","Thursday","Friday")
+#Assing the names of the day to roulette_vector and poker_vector
+names(poker_vector)= days_vector
+names(roulette_vector)= days_vector
+total_daily= poker_vector+roulette_vector
+total_daily
+#Total winnings with poker
+total_poker= sum(poker_vector)
+#Total winnings with roulette
+total_roulette= sum(roulette_vector)
+#Total week
+total_week= total_poker+total_roulette
+total_poker> total_roulette
+#Define a new variable based on a selection
+poker_wednesday= poker_vector[3]
+poker_midweek= poker_vector[c(2,3,4)]
+roulette_selection_vector= roulette_vector[2:5]
+#Select poker results for Monday, Tuesday and Wednesday
+poker_start= poker_vector[c(Monday, Tuesday, Wednesday)]
+selection_vector= poker_vector> 0
+poker_winning_days= poker_vector[selection_vector]
+
+
+#Construct a matrix with 3 rows that contain the numbers 1 up to 9
+matrix(1:9, byrow= TRUE, nrow= 3)
+
+
+#Box office Star Wars
+new_hope= c(460.998, 314.4)
+empire_strikes= c(290.475, 247.900) 
+return_of_the_jedi= c(309.306, 165.8)
+box_office= c(new_hope, empire_strikes, return_of_the_jedi)
+star_wars_matrix= matrix(box_office, nrow= 3, byrow= TRUE)
+#Vectors region and titles, used for naming
+region= c("US", "non-US")
+titles= c("New Hope", "The Empire Strikes Back", "Return of the Jedi")
+#Name the columns with the region
+colnames(star_wars_matrix)= region
+#Name the rows with the titles
+rownames(star_wars_matrix)= titles
+#Calculate worlwide box office figures
+worldwide_vector= rowSums(star_wars_matrix)
+#Bind the new variable worldwide_vector as a column to star_wars_matrix
+all_wars_matrix= cbind(star_wars_matrix, worldwide_vector)
+
+
+name= c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type= c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Gasgiant", "Gas giant", "Gas giant", "Gas giant")
+diameter= c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation= c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings= c( FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+planets_df= data.frame(name, type, diameter, rotation, rings)
+planets_df[1,3]
+planets_df[4, ]
+planets_df[1:5, "diameter"]
+rings_vector= planets_df$rings
+planets_df[rings_vector,]
+subset(planets_df, subset= diameter<1)
+positions= order(planets_df$diameter)
+planets_df[positions,]
